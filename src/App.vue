@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <!-- <img src="./assets/logo.png"> -->
     <router-view/>
   </div>
 </template>
@@ -12,12 +11,8 @@ export default {
 </script>
 
 <style lang="scss">
-// default...
 @import "~bootstrap/scss/bootstrap.scss";
-// custom bootstrap...
-// @import "~bootstrap/scss/_nav.scss";
-// custom app...
 #app {
-
+  margin-top: 40px;
 }
 </style>

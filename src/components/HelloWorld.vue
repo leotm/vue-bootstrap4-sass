@@ -1,18 +1,24 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <div>
-      <b-button href="#" variant="success">I am a Link</b-button>
+  <b-container>
+    <b-row>
+      <b-col sm="12" class="mb-1">
+        <b-card title="How many tenants?" >
+          <b-form-select v-model="selected" :options="options"></b-form-select>
+        </b-card>
+      </b-col>
+    </b-row>
+    <div v-for="(tenant, n) in selected" :key="tenant.id">
+    <b-row>
+      <b-col sm="12" class="mb-1">
+          <b-card>
+            Import TenantsNumber component and repeat here,
+            Number: {{ tenant }},
+            Index: {{ n }}
+          </b-card>
+      </b-col>
+    </b-row>
     </div>
-    <template v-for="(tenant, n) in tenants">
-      <ul>
-        <li :tenant="tenant">
-          {{ tenant.firstName }}
-          {{ tenant.lastName }}
-        </li>
-      </ul>
-    </template>
-  </div>
+  </b-container>
 </template>
 
 <script>
@@ -20,11 +26,17 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome!',
+      selected: null,
+      options: [
+        { value: null, text: 'Please select how many tenants', disabled: true },
+        { value: 1, text: '1' },
+        { value: 2, text: '2' },
+        { value: 3, text: '3' }
+      ],
       tenants: [
         {
-          firstName: "Tom",
-          lastName: "Jones"
+          firstName: 'Tom',
+          lastName: 'Jones'
         }
       ]
     }
